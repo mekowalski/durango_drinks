@@ -5,7 +5,7 @@ class MicroBreweries::CLI
   end
 
   def list_breweries
-    puts <<- DOC
+    puts """
       1. Durango Brewing Co
       2. Ska Brewing Co
       3. Carvers Brewing Co
@@ -13,6 +13,6 @@ class MicroBreweries::CLI
       5. Steamworks Brewing Co
       6. Brew Pub & Kitchen
       7. Honeyville Honey
-    DOC
+    """
   end
 end
