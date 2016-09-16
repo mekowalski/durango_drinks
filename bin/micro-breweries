@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/micro_breweries'
+
+MicroBreweries::CLI.new.call

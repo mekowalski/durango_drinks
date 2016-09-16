@@ -1,5 +1,6 @@
-require "micro_breweries/version"
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 
-module MicroBreweries
-  # Your code goes here...
-end
+require_relative './micro_breweries/version'
+require_relative './micro_breweries/cli'
