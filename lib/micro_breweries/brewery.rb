@@ -5,7 +5,6 @@ require 'pry'
 #address = row.css(".address").text
 #telephone = row.css(".phone").text
 
-
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
@@ -29,7 +28,7 @@ class MicroBreweries::Brewery
     doc.css(".row").each do |row|
       brewery_name = row.css("h3").text
         rows[title.to_sym] = {
-          :brewery_name => row.css("h3").text #do i want this here? does this make sense?
+          :brewery_name => row.css("h3").text, #do i want this here? does this make sense?
           :description => row.css(".summary").text,
           :address => row.css(".address").text,
           :telephone => row.css(".phone").text

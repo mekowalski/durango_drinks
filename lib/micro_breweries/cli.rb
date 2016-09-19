@@ -1,11 +1,11 @@
-class MicroBreweries::CLI
-  def call
+class MicroBreweries::CLI #CLI controller
+  def call #class method greeting user then listing breweries
     list_breweries
     brewery_details
     goodbye
   end
 
-  def list_breweries
+  def list_breweries #object named Brewery that scrapes site to return info
     puts "Here are Durango's MicroBreweries"
     puts "
       1. Durango Brewing Co
@@ -19,7 +19,7 @@ class MicroBreweries::CLI
     @brewery = MicroBreweries::Brewery
   end
 
-  def brewery_details
+  def brewery_details #the user will engage to access information on each brewery
     puts "Select a number corresponding to the brewery you're interested in."
     input = nil
     while input != "exit"
