@@ -1,14 +1,20 @@
 require 'pry'
 
+#brewery_name = row.css("h3").text
+#description = row.css(".summary").text
+#address = row.css(".address").text
+#telephone = row.css(".phone").text
+
+
 class MicroBreweries::Brewery
-  attr_accessor :brewery_name, :description, :telephone, :address
+  attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
 
   def initialize(attributes = {})
     @brewery_name = attributes[:brewery_name]
     @description = attributes[:description]
-    @telephone = attributes[:telephone]
     @address = attributes[:address]
+    @telephone = attributes[:telephone]
     @@all << self
   end
 
@@ -22,14 +28,13 @@ class MicroBreweries::Brewery
 
     doc.css(".row").each do |row|
       brewery_name = row.css("h3").text
-
+        rows[title.to_sym] = {
+          :brewery_name => row.css("h3").text #do i want this here? does this make sense?
+          :description => row.css(".summary").text,
+          :address => row.css(".address").text,
+          :telephone => row.css(".phone").text
+        }
+      end
+    end
   end
 end
-    doc.css(".row").each do |row|
-      brewery_name = row.css("h3").text
-        rows[title.to_sym] = {
-          :brewery_name => row.css().text
-          :description => row.css().text,
-          :telephone => row.css().text,
-          :address => row.css().text
-        }
