@@ -19,11 +19,17 @@ class MicroBreweries::Brewery
   def self.scrape_breweries
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     binding.pry
+
+    doc.css(".row").each do |row|
+      brewery_name = row.css("h3").text
+
   end
 end
-
-    #doc.css(".row").each do |row|
-      #brewery_name =
-#    end
-#  end
-#end
+    doc.css(".row").each do |row|
+      brewery_name = row.css("h3").text
+        rows[title.to_sym] = {
+          :brewery_name => row.css().text
+          :description => row.css().text,
+          :telephone => row.css().text,
+          :address => row.css().text
+        }
