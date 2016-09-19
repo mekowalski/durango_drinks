@@ -2,4 +2,6 @@
 
 require './lib/micro_breweries'
 
-MicroBreweries::CLI.new.call
+require "bundler/setup"
+
+MicroBreweries::CLI.new.call 
