@@ -2,7 +2,7 @@ require 'pry'
 
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :telephone, :address
-  @@all = [] 
+  @@all = []
 
   def initialize(attributes = {})
     @brewery_name = attributes[:brewery_name]
@@ -17,11 +17,13 @@ class MicroBreweries::Brewery
   end
 
   def self.scrape_breweries
-    doc = Nokogiri::HTML(open(http://www.durango.org/listings/category/microbreweries))
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     binding.pry
+  end
+end
 
     #doc.css(".row").each do |row|
       #brewery_name =
-    end
-  end
-end
+#    end
+#  end
+#end
