@@ -9,7 +9,7 @@ class MicroBreweries::CLI #CLI controller
     puts "Durango's MicroBreweries"
     MicroBreweries::Brewery.scrape_breweries
     MicroBreweries::Brewery.all.each.with_index(1) do |brewery, i|
-      puts "#{i}. #{brewery.brewery_name}"
+      puts "#{i}. #{brewery}"
     end
   end
 
