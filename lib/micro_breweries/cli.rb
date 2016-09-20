@@ -7,19 +7,22 @@ class MicroBreweries::CLI #CLI controller
 
   def list_breweries #object named Brewery that scrapes site to return info
     puts "Here are Durango's MicroBreweries"
-    puts "
-      1. Durango Brewing Co
-      2. Ska Brewing Co
-      3. Carvers Brewing Co
-      4. Animas Brewing Co
-      5. Steamworks Brewing Co
-      6. Brew Pub & Kitchen
-      7. Honeyville Honey
-    "
-    @brewery = MicroBreweries::Brewery
+    MicroBreweries::Brewery.scrape_breweries
+    # puts "
+    #   1. Durango Brewing Co
+    #   2. Ska Brewing Co
+    #   3. Carvers Brewing Co
+    #   4. Animas Brewing Co
+    #   5. Steamworks Brewing Co
+    #   6. Brew Pub & Kitchen
+    #   7. Honeyville Honey
+    # "
+    MicroBreweries::Brewery.each.with.index(1) do |brewery, i|
+      puts "#{i}. #{brewery.name}"
+    end
   end
 
-  def brewery_details #the user will engage to access information on each brewery
+  def brewery_details #user will engage to access info on each brewery
     puts "Select a number corresponding to the brewery you're interested in."
     input = nil
     while input != "exit"
