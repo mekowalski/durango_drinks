@@ -17,7 +17,7 @@ class MicroBreweries::CLI #CLI controller
     #   6. Brew Pub & Kitchen
     #   7. Honeyville Honey
     # "
-    MicroBreweries::Brewery.each.with.index(1) do |brewery, i|
+    MicroBreweries::Brewery.all.each.with.index(1) do |brewery, i|
       puts "#{i}. #{brewery.name}"
     end
   end

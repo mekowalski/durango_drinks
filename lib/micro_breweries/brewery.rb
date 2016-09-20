@@ -28,14 +28,13 @@ class MicroBreweries::Brewery
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
       # binding.pry
-        listings[title.to_sym] = {
-        # :brewery_name => listing.css("h3").text, #do i want this here? does this make sense?
+        self.new({
+        :brewery_name => listing.css("h3").text,
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text,
         :telephone => listing.css(".phone").text
-      }
-      binding.pry
-
+      })
+      # binding.pry
     end
   end
 end
