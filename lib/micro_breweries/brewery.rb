@@ -24,10 +24,10 @@ class MicroBreweries::Brewery
       brewery_name = listing.css("h3").text
       # binding.pry
         self.new({
-        brewery_name: listing.css("h3").text,
-        description: listing.css(".summary").text,
-        address: listing.css(".address").text.strip,
-        telephone: listing.css(".phone").text
+        :brewery_name => listing.css("h3").text,
+        :description => listing.css(".summary").text,
+        :address => listing.css(".address").text.strip,
+        :telephone => listing.css(".phone").text
       })
       # binding.pry
     end
