@@ -23,17 +23,19 @@ class MicroBreweries::Brewery
 
   def self.scrape_breweries
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
-    binding.pry
+    # binding.pry
 
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
-        rows[title.to_sym] = {
-          # :brewery_name => listing.css("h3").text, #do i want this here? does this make sense?
-          :description => listing.css(".summary").text,
-          :address => listing.css(".address").text,
-          :telephone => listing.css(".phone").text
-        }
-      end
+      # binding.pry
+        listings[title.to_sym] = {
+        # :brewery_name => listing.css("h3").text, #do i want this here? does this make sense?
+        :description => listing.css(".summary").text,
+        :address => listing.css(".address").text,
+        :telephone => listing.css(".phone").text
+      }
+      binding.pry
+
     end
   end
 end
