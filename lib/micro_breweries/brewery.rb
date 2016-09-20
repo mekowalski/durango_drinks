@@ -1,10 +1,5 @@
 require 'pry'
 
-#brewery_name = row.css("h3").text
-#description = row.css(".summary").text
-#address = row.css(".address").text
-#telephone = row.css(".phone").text
-
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
@@ -29,10 +24,10 @@ class MicroBreweries::Brewery
       brewery_name = listing.css("h3").text
       # binding.pry
         self.new({
-        :brewery_name => listing.css("h3").text,
-        :description => listing.css(".summary").text,
-        :address => listing.css(".address").text,
-        :telephone => listing.css(".phone").text
+        brewery_name: listing.css("h3").text,
+        description: listing.css(".summary").text,
+        address: listing.css(".address").text.strip,
+        telephone: listing.css(".phone").text
       })
       # binding.pry
     end
