@@ -1,28 +1,12 @@
 # MicroBreweries
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/micro_breweries`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
-## Installation
+## Installation Steps
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'micro_breweries'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install micro_breweries
-
-## Usage
-
-TODO: Write usage instructions here
+1. Please type gem install micro_breweries into the terminal. The micro_breweries Command Line Interface will be installed.
+2. To run gem, type micro_breweries and hit enter.
+3. A menu will show and you will be able to learn more about each brewery in Durango, CO.
 
 ## Development
 
@@ -38,4 +22,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
