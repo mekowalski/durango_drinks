@@ -7,7 +7,6 @@ class MicroBreweries::CLI #CLI controller
 
   def list_breweries #object named Brewery that scrapes site to return info
     puts "Durango's MicroBreweries"
-    
     MicroBreweries::Brewery.scrape_breweries
     MicroBreweries::Brewery.all.each.with_index(1) do |brewery, i|
       puts "#{i}. #{brewery.brewery_name}"
