@@ -13,7 +13,7 @@ class MicroBreweries::Brewery
   end
 
   def self.all
-    @all
+    @@all
   end
 
   def self.scrape_breweries

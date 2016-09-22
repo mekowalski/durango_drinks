@@ -7,6 +7,7 @@ class MicroBreweries::CLI #CLI controller
 
   def list_breweries #object named Brewery that scrapes site to return info
     puts "Durango's MicroBreweries"
+    
     MicroBreweries::Brewery.scrape_breweries
     MicroBreweries::Brewery.all.each.with_index(1) do |brewery, i|
       puts "#{i}. #{brewery.brewery_name}"
@@ -17,13 +18,18 @@ class MicroBreweries::CLI #CLI controller
     input = nil
     while input != "exit"
       puts "Select the number corresponding to the brewery you're interested in.
-      Or type list to see breweries.
-      Or type exit."
+        Or type list to see breweries.
+        Or type exit."
       input = gets.strip.downcase
 
       if input.to_i > 0
         brewery = MicroBreweries::Brewery.all[input.to_i - 1]
-        puts "Brewery: #{brewery.brewery_name}" "Description: #{brewery.description}" "Address: #{brewery.address}" "Telephone: #{brewery.telephone}"
+        puts """
+          Brewery: #{brewery.brewery_name}
+          Description: #{brewery.description}
+          Address: #{brewery.address}
+          Telephone: #{brewery.telephone}
+        """
       elsif input == "list"
         list_breweries
       else
