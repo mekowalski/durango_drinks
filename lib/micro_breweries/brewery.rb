@@ -1,5 +1,3 @@
-# require 'pry'
-
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
