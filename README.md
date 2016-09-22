@@ -2,12 +2,12 @@
 
 Many folks visit from all around the world to discover what the mountain town of Durango, CO beholds.  From hiking 13,000 feet mountains to shopping Historic Downtown, from skiing up high to floating the Animas river, from mountain biking to riding the Durango and Silverton Narrow Gauge Railroad, the adventures don't stop.
 
-Alongside the crevices of Durango you will find live music nightly, local farm-to-table meals and cold brews to get your senses flowing.  Durango offers a variety of breweries that will get you hopped up and ready to explore your next mountain adventure. 
+Alongside the crevices of Durango you will find live music nightly, local farm-to-table meals and cold brews to get your senses flowing.  Durango offers a variety of breweries that will get you hopped up and ready to explore your next mountain adventure.
 
 ## Installation Steps
 
-1. Please type gem install micro_breweries into the terminal. The micro_breweries Command Line Interface will be installed.
-2. To run gem, type micro_breweries and hit enter.
+1. Please type `gem install micro_breweries` into the terminal. The micro_breweries Command Line Interface will be installed.
+2. To run gem type `micro_breweries` and hit enter.
 3. A menu will show and you will be able to learn more about each brewery in Durango, CO.
 
 ## Development
