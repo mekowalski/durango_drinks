@@ -19,7 +19,7 @@ class MicroBreweries::Brewery
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
-        self.new({
+        self.new({#instantiates new Brewery object as iterated through web elements
         :brewery_name => listing.css("h3").text,
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text.strip,
