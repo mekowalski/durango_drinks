@@ -22,7 +22,7 @@ class MicroBreweries::Brewery
         self.new({#instantiates new Brewery object as iterated through web elements
         :brewery_name => listing.css("h3").text,
         :description => listing.css(".summary").text,
-        :address => listing.css(".address").text.strip,
+        :address => listing.css(".address").text.gsub("\n", " "),
         :telephone => listing.css(".phone").text
       })
     end
