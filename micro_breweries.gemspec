@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Malind Nikulski"]
   spec.email         = ["malind.nikulski@gmail.com"]
 
-  spec.summary       = %q{Providing users acces to the breweries in Durango}
+  spec.summary       = %q{Providing users access to the breweries in Durango}
   spec.description   = %q{Durango MicroBreweries}
   spec.homepage      = "https://github.com/menikulski/micro-breweries-gem"
   spec.license       = "MIT"
