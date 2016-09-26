@@ -3,5 +3,6 @@ require 'nokogiri'
 require 'pry'
 
 require_relative './micro_breweries/version'
-require_relative './micro_breweries/brewery' 
+require_relative './micro_breweries/brewery'
 require_relative './micro_breweries/cli'
+#this file acts as environment, requiring all dependencies

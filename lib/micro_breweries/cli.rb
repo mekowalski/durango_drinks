@@ -33,7 +33,7 @@ class MicroBreweries::CLI #CLI controller
       elsif input == "list"
         list_breweries
       else
-        puts "What you're looking for? Please retype list or exit."
+        puts "What are you looking for? Please retype list or exit."
       end
     end
   end
