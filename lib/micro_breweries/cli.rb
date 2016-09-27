@@ -2,7 +2,6 @@ class MicroBreweries::CLI #CLI controller
   def call #class method greeting user then listing breweries
     list_breweries
     brewery_details
-    goodbye
   end
 
   def list_breweries #object named Brewery that scrapes site to return info
@@ -32,6 +31,8 @@ class MicroBreweries::CLI #CLI controller
         puts "\n"
       elsif input == "list"
         list_breweries
+      elsif input == "exit"
+        goodbye
       else
         puts "What are you looking for? Please retype list or exit."
       end
