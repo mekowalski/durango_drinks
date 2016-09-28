@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/micro_breweries'
+
 require "bundler/setup"
-require "micro_breweries"
+# require "micro_breweries"
 #this file requires micro_breweries/lib/micro_breweries
 
 MicroBreweries::CLI.new.call
