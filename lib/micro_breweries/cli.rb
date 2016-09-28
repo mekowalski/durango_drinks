@@ -21,7 +21,7 @@ class MicroBreweries::CLI #CLI controller
         Or type list to see breweries.
         Or type exit."
       input = gets.strip.downcase
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i <= MicroBreweries::Brewery.all.count
         brewery = MicroBreweries::Brewery.all[input.to_i - 1]
         puts "\n"
         puts "Brewery: #{brewery.brewery_name}"
