@@ -40,6 +40,6 @@ class MicroBreweries::CLI #CLI controller
   end
 
   def goodbye
-    puts "Enjoy your Durango Brews!"
+    puts "Enjoy your Durango Brews!!"
   end
 end
