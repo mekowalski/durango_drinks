@@ -5,6 +5,6 @@ RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
 
-# task :console  do
-  # Pry.start
-# end
+task :console  do
+  Pry.start
+end
