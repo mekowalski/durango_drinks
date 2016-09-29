@@ -7,7 +7,7 @@ Alongside the crevices of Durango you will find live music nightly, local farm-t
 ## Installation Steps
 
 1. Please type `gem install micro_breweries` into the terminal. The micro_breweries Command Line Interface will be installed.
-2. To run gem type `micro_breweries` and hit enter.
+2. To run gem type `micro-breweries` and hit enter.
 3. A menu will show and you will be able to learn more about each brewery in Durango, CO.
 
 ## Development
