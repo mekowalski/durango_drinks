@@ -15,7 +15,6 @@ class MicroBreweries::Brewery
   end
 
   def self.scrape_breweries
-    @@all = []
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
@@ -28,3 +27,9 @@ class MicroBreweries::Brewery
     end
   end
 end
+
+
+MicroBreweries::Brewery.breweries('durango') #=> [ <#3423424324242342 @brewery_name = ,etc. > <#232423242342, @city=]
+MicroBreweries::Brewery.breweries('dolores')
+
+MicroBreweries::Scraper.scrape("http://www.durango.org/listings/category/microbreweries")
