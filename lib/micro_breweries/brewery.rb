@@ -29,14 +29,14 @@ class MicroBreweries::Brewery
     end
   end
 
-  def self.scrape_southwest_breweries
+  def self.scrape_sw_breweries
     doc = Nokogiri::HTML(open("http://www.colorado.com/colorado-breweries#1|8||241,34||||||1509410269|||"))
     binding.pry
   end
 end
 
 
-MicroBreweries::Brewery.breweries('durango') #=> [ <#3423424324242342 @brewery_name = ,etc. > <#232423242342, @city=]
-MicroBreweries::Brewery.breweries('dolores')
+# MicroBreweries::Brewery.breweries('durango') #=> [ <#3423424324242342 @brewery_name = ,etc. > <#232423242342, @city=]
+# MicroBreweries::Brewery.breweries('dolores')
 
-MicroBreweries::Scraper.scrape("http://www.durango.org/listings/category/microbreweries")
+# MicroBreweries::Scraper.scrape("http://www.durango.org/listings/category/microbreweries")
