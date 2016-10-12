@@ -1,3 +1,5 @@
+require "pry"
+
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
@@ -14,7 +16,7 @@ class MicroBreweries::Brewery
     @@all
   end
 
-  def self.scrape_breweries
+  def self.scrape_durango_breweries
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
@@ -25,6 +27,11 @@ class MicroBreweries::Brewery
         :telephone => listing.css(".phone").text
       })
     end
+  end
+
+  def self.scrape_southwest_breweries
+    doc = Nokogiri::HTML(open("http://www.colorado.com/colorado-breweries#1|8||241,34||||||1509410269|||"))
+    binding.pry
   end
 end
 
