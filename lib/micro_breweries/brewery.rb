@@ -16,7 +16,7 @@ class MicroBreweries::Brewery
     @@all
   end
 
-  def self.scrape_durango_breweries
+  def self.scrape_dgo_breweries
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|
       brewery_name = listing.css("h3").text
