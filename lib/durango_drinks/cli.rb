@@ -1,15 +1,15 @@
-class MicroBreweries::CLI #CLI controller
+class DurangoDrinks::CLI #CLI controller
   def call #class method greeting user then listing breweries
-    if MicroBreweries::Brewery.all.length == 0
-      MicroBreweries::Brewery.scrape_breweries
-      @breweries = MicroBreweries::Brewery.all
+    if DurangoDrinks::Brewery.all.length == 0
+      DurangoDrinks::Brewery.scrape_breweries
+      @breweries = DurangoDrinks::Brewery.all
     end
     list_breweries
     brewery_details
   end
 
   def list_breweries #object named Brewery that scrapes site to return info
-    puts "Durango's MicroBreweries"
+    puts "Durango's Drink Options"
     puts "\n"
     @breweries.each.with_index(1) do |brewery, i|
       puts "#{i}. #{brewery.brewery_name}"
@@ -43,6 +43,6 @@ class MicroBreweries::CLI #CLI controller
   end
 
   def goodbye
-    puts "Enjoy your Durango Brews!!"
+    puts "Enjoy your Durango Drinks!!"
   end
 end

@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'micro_breweries/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "micro_breweries"
-  spec.version       = MicroBreweries::VERSION
+  spec.name          = "durango_drinks"
+  spec.version       = DurangoDrinks::VERSION
   spec.authors       = ["Malind Nikulski"]
   spec.email         = ["malind.nikulski@gmail.com"]
 
   spec.summary       = %q{Providing users access to the breweries in Durango}
   spec.description   = %q{Durango MicroBreweries}
-  spec.homepage      = "https://github.com/menikulski/micro_breweries"
+  spec.homepage      = "https://github.com/menikulski/durango_drinks"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
-  spec.executables   = "micro_breweries"
+  spec.executables   = "durango_drinks"
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'nokogiri', '~> 1.6', '>= 1.6.8'
