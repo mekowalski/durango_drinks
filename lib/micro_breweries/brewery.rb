@@ -1,5 +1,3 @@
-require "pry"
-
 class MicroBreweries::Brewery
   attr_accessor :brewery_name, :description, :address, :telephone
   @@all = []
@@ -27,11 +25,6 @@ class MicroBreweries::Brewery
         :telephone => listing.css(".phone").text
       })
     end
-  end
-
-  def self.scrape_sw_breweries
-    doc = Nokogiri::HTML(open("http://www.colorado.com/colorado-breweries#1|8||241,34||||||1509410269|||"))
-    binding.pry
   end
 end
 
