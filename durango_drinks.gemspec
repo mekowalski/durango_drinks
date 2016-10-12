@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'micro_breweries/version'
+require 'durango_drinks/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "durango_drinks"
@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Malind Nikulski"]
   spec.email         = ["malind.nikulski@gmail.com"]
 
-  spec.summary       = %q{Providing users access to the breweries in Durango}
-  spec.description   = %q{Durango MicroBreweries}
+  spec.summary       = %q{Providing users access to the bars, breweries and coffeeshops in Durango}
+  spec.description   = %q{Durango Drinks}
   spec.homepage      = "https://github.com/menikulski/durango_drinks"
   spec.license       = "MIT"
 
