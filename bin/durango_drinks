@@ -4,6 +4,6 @@ require "bundler/setup"
 require_relative "../lib/durango_drinks"
 #this file requires micro_breweries/lib/durango_drinks
 
-MicroBreweries::CLI.new.call
+DurangoDrinks::CLI.new.call
 #(CLI class).(instantiate).(use call method)
 #run to start program

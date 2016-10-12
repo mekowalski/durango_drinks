@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe MicroBreweries do
+describe DurangoDrinks do
   it 'has a version number' do
-    expect(MicroBreweries::VERSION).not_to be nil
+    expect(DurangoDrinks::VERSION).not_to be nil
   end
 
   it 'does something useful' do
