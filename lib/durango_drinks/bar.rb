@@ -1,6 +1,8 @@
+require 'pry'
+
 class DurangoDrinks::Bar
   attr_accessor :bar_name, :description, :address, :telephone
-  @@aal = []
+  @@all = []
 
   def initialize(attributes = {})
     @bar_name = attributes[:bar_name]
@@ -16,6 +18,7 @@ class DurangoDrinks::Bar
 
   def self.scrape_bars
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
+    binding.pry
     doc.css(".listing_link").each do |listing|
       bar_name = listing.css("h3").text
         self.new({#instantiates new Brewery object as iterated through web elements

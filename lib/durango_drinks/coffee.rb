@@ -1,6 +1,6 @@
 class DurangoDrinks::Coffee
   attr_accessor :coffee_name, :description, :address, :telephone
-  @@aal = []
+  @@all = []
 
   def initialize(attributes = {})
     @coffee_name = attributes[:coffee_name]

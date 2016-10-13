@@ -1,27 +1,27 @@
 class DurangoDrinks::CLI #CLI controller
   def call #class method greeting user then listing breweries
-    if DurangoDrinks::Brewery.all.length == 0
-      DurangoDrinks::Brewery.scrape_breweries
-      @breweries = DurangoDrinks::Brewery.all
-    end
-    list_breweries
-    brewery_details
+    # if DurangoDrinks::Brewery.all.length == 0
+      # DurangoDrinks::Brewery.scrape_breweries
+      # @breweries = DurangoDrinks::Brewery.all
+    # end
+    list_drink_options
+    drink_details
   end
 
-  def list_breweries #object named Brewery that scrapes site to return info
+  def list_drink_options #object named Brewery that scrapes site to return info
     puts "Durango's Drink Options"
-    puts "\n"
-    @breweries.each.with_index(1) do |brewery, i|
-      puts "#{i}. #{brewery.brewery_name}"
-    end
-    puts "\n"
+    puts """
+      1. Durango Bars
+      2. Durango Breweries
+      3. Durango Coffeeshops
+    """
   end
 
-  def brewery_details #user will engage to access info on each brewery
+  def drink_details #user will engage to access info on each brewery
     input = nil
     while input != "exit"
-      puts "Select the number corresponding to the brewery you're interested in.
-        Or type list to see breweries.
+      puts "Select the number corresponding to the drink option you're interested in.
+        Or type list to see menu.
         Or type exit."
       input = gets.strip.downcase
       if input.to_i > 0 && input.to_i <= @breweries.count
