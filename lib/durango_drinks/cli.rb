@@ -4,11 +4,11 @@ class DurangoDrinks::CLI #CLI controller
       # DurangoDrinks::Brewery.scrape_breweries
       # @breweries = DurangoDrinks::Brewery.all
     # end
-    list_drink_options
+    list_drink_menu
     drink_details
   end
 
-  def list_drink_options #object named Brewery that scrapes site to return info
+  def list_drink_menu
     puts "Durango's Drink Options"
     puts """
       1. Durango Bars
@@ -24,17 +24,21 @@ class DurangoDrinks::CLI #CLI controller
         Or type list to see menu.
         Or type exit."
       input = gets.strip.downcase
-      if input.to_i > 0 && input.to_i <= @breweries.count
-        brewery = @breweries[input.to_i - 1]
-        puts "\n"
-        puts "Brewery: #{brewery.brewery_name}"
-        puts "Description: #{brewery.description}"
-        puts "Address: #{brewery.address}"
-        puts "Telephone: #{brewery.telephone}"
-        puts "\n"
-      elsif input == "list"
-        list_breweries
-      elsif input == "exit"
+      case input
+      when "1"
+        puts "Durango's Bars"
+        DurangoDrinks::Bar.scrape_bars
+        DurangoDrinks::Bar.each_with_index(1) do |bar, i|
+          puts "#{i}. #{bar.bar_name}"
+        end
+      when "2"
+        puts "Durango's Breweries"
+      when "3"
+        puts "Durango's Coffeeshops"
+        DurangoDrinks::Coffee.all
+      when "list"
+        list_drink_menu
+      when "exit"
         goodbye
       else
         puts "What are you looking for? Please retype list or exit."
