@@ -18,15 +18,15 @@ class DurangoDrinks::Bar
 
   def self.scrape_bars
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
-    binding.pry
     doc.css(".listing_link").each do |listing|
       bar_name = listing.css("h3").text
-        self.new({#instantiates new Brewery object as iterated through web elements
-        :bar_name => listing.css("h3").text,
-        :description => listing.css(".summary").text,
-        :address => listing.css(".address").text.gsub("\n", " "),
-        :telephone => listing.css(".phone").text
-      })
+      binding.pry
+        # self.new({#instantiates new Brewery object as iterated through web elements
+        # :bar_name => listing.css("h3").text,
+        # :description => listing.css(".summary").text,
+        # :address => listing.css(".address").text.gsub("\n", " "),
+        # :telephone => listing.css(".phone").text
+      # })
     end
   end
 end
