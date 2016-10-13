@@ -35,7 +35,6 @@ class DurangoDrinks::CLI #CLI controller
         puts "Durango's Breweries"
       when "3"
         puts "Durango's Coffeeshops"
-        DurangoDrinks::Coffee.all
       when "list"
         list_drink_menu
       when "exit"
