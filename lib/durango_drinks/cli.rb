@@ -1,3 +1,5 @@
+require 'pry'
+
 class DurangoDrinks::CLI #CLI controller
   def call #class method greeting user then listing breweries
     # if DurangoDrinks::Brewery.all.length == 0
@@ -28,8 +30,8 @@ class DurangoDrinks::CLI #CLI controller
       when "1"
         puts "Durango's Bars"
         DurangoDrinks::Bar.scrape_bars
-        DurangoDrinks::Bar.all.each_with_index(1) do |bar, i|
-          puts "#{i}. #{bar.bar_name}"
+        DurangoDrinks::Bar.all.each_with_index do |bar, i|
+          puts "#{i+1}. #{bar.bar_name}"
         end
       when "2"
         puts "Durango's Breweries"
