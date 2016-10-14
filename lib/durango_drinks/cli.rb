@@ -28,7 +28,7 @@ class DurangoDrinks::CLI #CLI controller
       when "1"
         puts "Durango's Bars"
         DurangoDrinks::Bar.scrape_bars
-        DurangoDrinks::Bar.each_with_index(1) do |bar, i|
+        DurangoDrinks::Bar.all.each_with_index(1) do |bar, i|
           puts "#{i}. #{bar.bar_name}"
         end
       when "2"
