@@ -1,12 +1,10 @@
 class DurangoDrinks::ListingCollection
+  attr_reader :listings
 
-  def initialize(name, description, address, telephone)
-    @name = name
-    @description = description
-    @address = address
-    @telephone = telephone
+  def initialize
+    scrape
   end
-
+  
   def scrape(url)
     @listings = []
     doc = Nokogiri::HTML(open(url))
@@ -25,5 +23,5 @@ class DurangoDrinks::ListingCollection
       puts "#{i + 1}. #{listing.name}"
     end
   end
-  
+
 end
