@@ -1,9 +1,9 @@
 class DurangoDrinks::Bar
-  attr_accessor :bar_name, :description, :address, :telephone
+  attr_accessor :name, :description, :address, :telephone
   @@all = []
 
   def initialize(attributes = {})
-    @bar_name = attributes[:bar_name]
+    @name = attributes[:name]
     @description = attributes[:description]
     @address = attributes[:address]
     @telephone = attributes[:telephone]
@@ -15,11 +15,11 @@ class DurangoDrinks::Bar
   end
 
   def self.scrape_bars
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/VARIABLE_GOES_HERE"))
     doc.css(".listing_link").each do |listing|
-      bar_name = listing.css("h3").text
+      name = listing.css("h3").text
         self.new({#instantiates new Brewery object as iterated through web elements
-        :bar_name => listing.css("h3").text,
+        :name => listing.css("h3").text,
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text.gsub("\n", " "),
         :telephone => listing.css(".phone").text
