@@ -1,11 +1,5 @@
-require 'pry'
-
 class DurangoDrinks::CLI #CLI controller
-  def call #class method greeting user then listing breweries
-    # if DurangoDrinks::Brewery.all.length == 0
-      # DurangoDrinks::Brewery.scrape_breweries
-      # @breweries = DurangoDrinks::Brewery.all
-    # end
+  def call
     list_drink_menu
     drink_details
   end
@@ -29,14 +23,13 @@ class DurangoDrinks::CLI #CLI controller
       case input
       when "1"
         puts "Durango's Bars"
-        DurangoDrinks::Bar.scrape_bars
-        DurangoDrinks::Bar.all.each_with_index do |bar, i|
-          puts "#{i+1}. #{bar.bar_name}"
-        end
+        collection = DurangoDrinks::BarCollection.new
       when "2"
         puts "Durango's Breweries"
+        collection = DurangoDrinks::BreweryCollection.new
       when "3"
-        puts "Durango's Coffeeshops"
+        puts "Durango's Coffee Shops"
+        collection = DurangoDrinks::CoffeeCollection.new
       when "list"
         list_drink_menu
       when "exit"
@@ -44,6 +37,7 @@ class DurangoDrinks::CLI #CLI controller
       else
         puts "What are you looking for? Please retype list or exit."
       end
+      collection.print_listings
     end
   end
 
