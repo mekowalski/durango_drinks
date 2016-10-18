@@ -15,6 +15,7 @@ class DurangoDrinks::Bar
   end
 
   def self.scrape_bars
+    @@all = [] #this helps the list from being repeated, not understanding why though.
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text

@@ -15,6 +15,7 @@ class DurangoDrinks::Coffee
   end
 
   def self.scrape_coffeeshops
+    @@all = []
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/coffee-shops"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text

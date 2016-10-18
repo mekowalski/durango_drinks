@@ -1,7 +1,9 @@
-require 'pry'
-
 class DurangoDrinks::CLI #CLI controller
   def call
+    # if DurangoDrinks::Brewery.all.length == 0
+      # DurangoDrinks::Brewery.scrape_breweries
+      # @breweries = DurangoDrinks::Brewery.all
+    # end
     list_drink_menu
     drink_details
   end
