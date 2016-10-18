@@ -15,7 +15,7 @@ class DurangoDrinks::Bar
   end
 
   def self.scrape_bars
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/VARIABLE_GOES_HERE"))
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text
         self.new({#instantiates new Brewery object as iterated through web elements
