@@ -28,13 +28,3 @@ class DurangoDrinks::Brewery
     end
   end
 end
-
-
-# MicroBreweries::Brewery.breweries('durango') #=> [ <#3423424324242342 @brewery_name = ,etc. > <#232423242342, @city=]
-# MicroBreweries::Brewery.breweries('dolores')
-
-# MicroBreweries::Scraper.scrape("http://www.durango.org/listings/category/microbreweries")
-
-# bars: bars-nightlife
-# breweries: microbreweries
-# coffee: coffee-shops

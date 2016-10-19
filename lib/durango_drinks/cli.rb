@@ -13,7 +13,7 @@ class DurangoDrinks::CLI #CLI controller
     puts """
       1. Durango Bars
       2. Durango Breweries
-      3. Durango Coffeeshops
+      3. Durango Cafes
     """
   end
 
@@ -38,10 +38,10 @@ class DurangoDrinks::CLI #CLI controller
           puts "#{i + 1}. #{brewery.name}"
         end
       when "3"
-        puts "Durango's Coffee Shops"
-        DurangoDrinks::Coffee.scrape_coffeeshops
-        DurangoDrinks::Coffee.all.each_with_index do |coffee, i|
-          puts "#{i + 1}. #{coffee.name}"
+        puts "Durango's Cafes"
+        DurangoDrinks::Cafe.scrape_cafes
+        DurangoDrinks::Cafe.all.each_with_index do |cafe, i|
+          puts "#{i + 1}. #{cafe.name}"
         end
       when "list"
         list_drink_menu

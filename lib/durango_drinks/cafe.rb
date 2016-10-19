@@ -1,4 +1,4 @@
-class DurangoDrinks::Bar
+class DurangoDrinks::Cafe
   attr_accessor :name, :description, :address, :telephone
   @@all = []
 
@@ -14,9 +14,9 @@ class DurangoDrinks::Bar
     @@all
   end
 
-  def self.scrape_bars
-    @@all = [] #this helps the list from being repeated, not understanding why though.
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
+  def self.scrape_cafe
+    @@all = []
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/coffee-shops"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text
         self.new({#instantiates new Brewery object as iterated through web elements
