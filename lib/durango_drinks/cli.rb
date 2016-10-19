@@ -27,22 +27,22 @@ class DurangoDrinks::CLI #CLI controller
       case input
       when "1"
         puts "Durango's Bars"
-        DurangoDrinks::Bar.scrape_bars
-        DurangoDrinks::Bar.all.each_with_index do |bar, i|
-          puts "#{i + 1}. #{bar.name}"
+        DurangoDrinks::Locations.scrape_location("bars")
+        DurangoDrinks::Locations.all.each_with_index do |location, i|
+          puts "#{i + 1}. #{location.name}"
         end
-      when "2"
-        puts "Durango's Breweries"
-        DurangoDrinks::Brewery.scrape_breweries
-        DurangoDrinks::Brewery.all.each_with_index do |brewery, i|
-          puts "#{i + 1}. #{brewery.name}"
-        end
-      when "3"
-        puts "Durango's Cafes"
-        DurangoDrinks::Cafe.scrape_cafes
-        DurangoDrinks::Cafe.all.each_with_index do |cafe, i|
-          puts "#{i + 1}. #{cafe.name}"
-        end
+      # when "2"
+        # puts "Durango's Breweries"
+        # DurangoDrinks::Brewery.scrape_breweries
+        # DurangoDrinks::Brewery.all.each_with_index do |brewery, i|
+          # puts "#{i + 1}. #{brewery.name}"
+        # end
+      # when "3"
+        # puts "Durango's Cafes"
+        # DurangoDrinks::Cafe.scrape_cafes
+        # DurangoDrinks::Cafe.all.each_with_index do |cafe, i|
+          # puts "#{i + 1}. #{cafe.name}"
+        # end
       when "list"
         list_drink_menu
       when "exit"

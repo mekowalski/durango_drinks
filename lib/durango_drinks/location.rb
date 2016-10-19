@@ -1,11 +1,10 @@
+require 'pry'
+
 class DurangoDrinks::Locations
   attr_accessor :name, :description, :address, :telephone, :location_types
   @@all = []
 
-  LOCATION_TYPES = {{
-    bar: 'bars-nightlife', name: },
-    cafe: 'coffee-shops', name: },
-    brewery: 'microbreweries', name: }}
+  LOCATION_TYPES = {{bar: "bars-nightlife"}, {cafe: "coffee-shops"}, {brewery: "microbreweries"}}
 
   def initialize(attributes = {})
     @name = attributes[:name]
@@ -29,12 +28,12 @@ class DurangoDrinks::Locations
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text.gsub("\n", " "),
         :telephone => listing.css(".phone").text,
-        :location_type: LOCATION_TYPES[location_type][name]
+        :location_type => LOCATION_TYPES[location_type][name]
       })
     end
   end
 
-  def self.find(location_type)
-    self.
+  def self.find(location_type, input)
+    self.all(input.to_i-1)
   end
 end
