@@ -1,40 +1,51 @@
 class DurangoDrinks::CLI #CLI controller
-  def call #class method greeting user then listing breweries
-    if DurangoDrinks::Brewery.all.length == 0
-      DurangoDrinks::Brewery.scrape_breweries
-      @breweries = DurangoDrinks::Brewery.all
-    end
-    list_breweries
-    brewery_details
+  def call
+    # if DurangoDrinks::Brewery.all.length == 0
+      # DurangoDrinks::Brewery.scrape_breweries
+      # @breweries = DurangoDrinks::Brewery.all
+    # end
+    list_drink_menu
+    drink_details
   end
 
-  def list_breweries #object named Brewery that scrapes site to return info
+  def list_drink_menu
     puts "Durango's Drink Options"
-    puts "\n"
-    @breweries.each.with_index(1) do |brewery, i|
-      puts "#{i}. #{brewery.brewery_name}"
-    end
-    puts "\n"
+    puts """
+      1. Durango Bars
+      2. Durango Breweries
+      3. Durango Cafes
+    """
   end
 
-  def brewery_details #user will engage to access info on each brewery
+  def drink_details #user will engage to access info on each brewery
     input = nil
     while input != "exit"
-      puts "Select the number corresponding to the brewery you're interested in.
-        Or type list to see breweries.
+      puts "Select the number corresponding to the drink option you're interested in.
+        Or type list to see menu.
         Or type exit."
       input = gets.strip.downcase
-      if input.to_i > 0 && input.to_i <= @breweries.count
-        brewery = @breweries[input.to_i - 1]
-        puts "\n"
-        puts "Brewery: #{brewery.brewery_name}"
-        puts "Description: #{brewery.description}"
-        puts "Address: #{brewery.address}"
-        puts "Telephone: #{brewery.telephone}"
-        puts "\n"
-      elsif input == "list"
-        list_breweries
-      elsif input == "exit"
+      case input
+      when "1"
+        puts "Durango's Bars"
+        DurangoDrinks::Locations.scrape_location("bars")
+        DurangoDrinks::Locations.all.each_with_index do |location, i|
+          puts "#{i + 1}. #{location.name}"
+        end
+      # when "2"
+        # puts "Durango's Breweries"
+        # DurangoDrinks::Brewery.scrape_breweries
+        # DurangoDrinks::Brewery.all.each_with_index do |brewery, i|
+          # puts "#{i + 1}. #{brewery.name}"
+        # end
+      # when "3"
+        # puts "Durango's Cafes"
+        # DurangoDrinks::Cafe.scrape_cafes
+        # DurangoDrinks::Cafe.all.each_with_index do |cafe, i|
+          # puts "#{i + 1}. #{cafe.name}"
+        # end
+      when "list"
+        list_drink_menu
+      when "exit"
         goodbye
       else
         puts "What are you looking for? Please retype list or exit."
