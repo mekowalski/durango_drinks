@@ -27,7 +27,7 @@ class DurangoDrinks::CLI #CLI controller
       case input
       when "1"
         puts "Durango's Bars"
-        DurangoDrinks::Locations.scrape_location("bars")
+        DurangoDrinks::Locations.scrape_location("bars-nightlife")
         DurangoDrinks::Locations.all.each_with_index do |location, i|
           puts "#{i + 1}. #{location.name}"
         end
