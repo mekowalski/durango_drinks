@@ -1,3 +1,4 @@
+require 'pry'
 class DurangoDrinks::CLI #CLI controller
   def call
     # if DurangoDrinks::Brewery.all.length == 0
@@ -24,10 +25,9 @@ class DurangoDrinks::CLI #CLI controller
         Or type list to see menu.
         Or type exit."
       input = gets.strip.downcase
-      case input
-      when "1"
+      if input == 1
         puts "Durango's Bars"
-        DurangoDrinks::Locations.scrape_location("bars-nightlife")
+        DurangoDrinks::Locations.scrape_location(LOCATION_TYPES[:bar])
         DurangoDrinks::Locations.all.each_with_index do |location, i|
           puts "#{i + 1}. #{location.name}"
         end
@@ -43,9 +43,9 @@ class DurangoDrinks::CLI #CLI controller
         # DurangoDrinks::Cafe.all.each_with_index do |cafe, i|
           # puts "#{i + 1}. #{cafe.name}"
         # end
-      when "list"
+      elsif input == "list"
         list_drink_menu
-      when "exit"
+      elsif input == "exit"
         goodbye
       else
         puts "What are you looking for? Please retype list or exit."
