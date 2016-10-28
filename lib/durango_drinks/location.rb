@@ -20,10 +20,11 @@ class DurangoDrinks::Locations
   end
 
   def self.scrape_location(location_type)
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/#{location_type}"))
-    # binding.pry
+    @@all = []
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text
+      binding.pry
         self.new({
         :name => listing.css("h3").text,
         :description => listing.css(".summary").text,
