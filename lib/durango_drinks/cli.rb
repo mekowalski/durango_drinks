@@ -25,10 +25,10 @@ class DurangoDrinks::CLI #CLI controller
         Or type list to see menu.
         Or type exit."
       input = gets.strip.downcase
-      if input == 1
+      if input.to_i == 1
         puts "Durango's Bars"
-        DurangoDrinks::Locations.scrape_location(LOCATION_TYPES[:bar])
-        DurangoDrinks::Locations.all.each_with_index do |location, i|
+        DurangoDrinks::Locations.scrape_location(DurangoDrinks::Locations::LOCATION_TYPES[:bar])
+        DurangoDrinks::Locations.all.each.with_index do |location, i|
           puts "#{i + 1}. #{location.name}"
         end
       # when "2"
