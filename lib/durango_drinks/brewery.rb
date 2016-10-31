@@ -2,7 +2,7 @@ class DurangoDrinks::Brewery
   attr_accessor :name, :description, :address, :telephone
   @@all = []
 
-  LOCATION_TYPES = {brewery: "microbreweries"}
+  #LOCATION_TYPES = {brewery: "microbreweries"}
 
   def initialize(attributes = {})
     @name = attributes[:name]
@@ -16,7 +16,7 @@ class DurangoDrinks::Brewery
     @@all
   end
 
-  def self.scrape_location(location_type = :brewery)
+  def self.scrape_location#(location_type = :brewery)
     @@all = []
     doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|

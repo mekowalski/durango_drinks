@@ -44,7 +44,7 @@ class DurangoDrinks::CLI #CLI controller
       elsif input.to_i == 2
         puts "Durango's Breweries"
         puts "Enter the number corresponding number to a specific brewery or back for the main menu."
-        DurangoDrinks::Brewery.scrape_location(DurangoDrinks::Brewery::LOCATION_TYPES[:brewery])
+        DurangoDrinks::Brewery.scrape_location#(DurangoDrinks::Brewery::LOCATION_TYPES[:brewery])
         DurangoDrinks::Brewery.all.each.with_index do |brewery, i|
           puts "#{i + 1}. #{brewery.name}"
         end
