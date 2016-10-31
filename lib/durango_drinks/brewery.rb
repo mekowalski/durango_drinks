@@ -1,17 +1,14 @@
-require 'pry'
-
-class DurangoDrinks::Locations
-  attr_accessor :name, :description, :address, :telephone, :location_types
+class DurangoDrinks::Brewery
+  attr_accessor :name, :description, :address, :telephone
   @@all = []
 
-  LOCATION_TYPES = {bar: "bars-nightlife", cafe: "coffee-shops", brewery: "microbreweries"}
+  LOCATION_TYPES = {brewery: "microbreweries"}
 
   def initialize(attributes = {})
     @name = attributes[:name]
     @description = attributes[:description]
     @address = attributes[:address]
     @telephone = attributes[:telephone]
-    @location_type = attributes[:location_types]
     @@all << self
   end
 
@@ -19,8 +16,9 @@ class DurangoDrinks::Locations
     @@all
   end
 
-  def self.scrape_location(location_type = :bar)
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/bars-nightlife"))
+  def self.scrape_location(location_type = :brewery)
+    @@all = []
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/microbreweries"))
     doc.css(".listing_link").each do |listing|
       name = listing.css("h3").text
       # binding.pry
@@ -29,12 +27,7 @@ class DurangoDrinks::Locations
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text.gsub("\n", " "),
         :telephone => listing.css(".phone").text,
-        :location_type => location_type
       })
     end
   end
-
-  # def self.find(location_type, input)
-  #   self.all(input.to_i-1)
-  # end
 end
