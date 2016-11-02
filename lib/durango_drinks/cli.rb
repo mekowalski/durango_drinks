@@ -1,5 +1,59 @@
 require 'pry'
 class DurangoDrinks::CLI #CLI controller
+  def bar_menu
+    puts "Durango's Bars"
+    puts "Enter the number corresponding number to a specific bar or back for the main menu."
+    DurangoDrinks::Bar.scrape_location(DurangoDrinks::Bar::LOCATION_TYPES[:bar])
+    DurangoDrinks::Bar.all.each.with_index do |bar, i|
+      puts "#{i + 1}. #{bar.name}"
+    end
+    puts "\n"
+    bar_input = gets.strip.downcase
+    if bar_input != "back"
+      the_bar = DurangoDrinks::Bar.all[bar_input.to_i-1]
+      puts "Name:         #{the_bar.name}"
+      puts "Address:      #{the_bar.address}"
+      puts "Description:  #{the_bar.description}"
+      puts "Phone:        #{the_bar.telephone}"
+    end
+  end
+
+  def brewery_menu
+    puts "Durango's Breweries"
+    puts "Enter the number corresponding number to a specific brewery or back for the main menu."
+    DurangoDrinks::Brewery.scrape_location#(DurangoDrinks::Brewery::LOCATION_TYPES[:brewery])
+    DurangoDrinks::Brewery.all.each.with_index do |brewery, i|
+      puts "#{i + 1}. #{brewery.name}"
+    end
+    puts "\n"
+    brewery_input = gets.strip.downcase
+    if brewery_input != "back"
+      the_brewery = DurangoDrinks::Brewery.all[brewery_input.to_i-1]
+      puts "Name:         #{the_brewery.name}"
+      puts "Address:      #{the_brewery.address}"
+      puts "Description:  #{the_brewery.description}"
+      puts "Phone:        #{the_brewery.telephone}"
+    end
+  end
+
+  def cafe_menu
+    puts "Durango's Cafes"
+    puts "Enter the number corresponding number to a specific cafe or back for the main menu."
+    DurangoDrinks::Cafe.scrape_location(DurangoDrinks::Cafe::LOCATION_TYPES[:cafe])
+    DurangoDrinks::Cafe.all.each.with_index do |cafe, i|
+      puts "#{i + 1}. #{cafe.name}"
+    end
+    puts "\n"
+    cafe_input = gets.strip.downcase
+    if cafe_input != "back"
+      the_cafe = DurangoDrinks::Cafe.all[cafe_input.to_i-1]
+      puts "Name:         #{the_cafe.name}"
+      puts "Address:      #{the_cafe.address}"
+      puts "Description:  #{the_cafe.description}"
+      puts "Phone:        #{the_cafe.telephone}"
+    end
+  end
+
   def call
     # if DurangoDrinks::Brewery.all.length == 0
       # DurangoDrinks::Brewery.scrape_breweries
@@ -26,53 +80,11 @@ class DurangoDrinks::CLI #CLI controller
         Or type exit."
       input = gets.strip.downcase
       if input.to_i == 1
-        puts "Durango's Bars"
-        puts "Enter the number corresponding number to a specific bar or back for the main menu."
-        DurangoDrinks::Bar.scrape_location(DurangoDrinks::Bar::LOCATION_TYPES[:bar])
-        DurangoDrinks::Bar.all.each.with_index do |bar, i|
-          puts "#{i + 1}. #{bar.name}"
-        end
-        puts "\n"
-        bar_input = gets.strip.downcase
-        if bar_input != "back"
-          the_bar = DurangoDrinks::Bar.all[bar_input.to_i-1]
-          puts "Name:         #{the_bar.name}"
-          puts "Address:      #{the_bar.address}"
-          puts "Description:  #{the_bar.description}"
-          puts "Phone:        #{the_bar.telephone}"
-        end
+        bar_menu
       elsif input.to_i == 2
-        puts "Durango's Breweries"
-        puts "Enter the number corresponding number to a specific brewery or back for the main menu."
-        DurangoDrinks::Brewery.scrape_location#(DurangoDrinks::Brewery::LOCATION_TYPES[:brewery])
-        DurangoDrinks::Brewery.all.each.with_index do |brewery, i|
-          puts "#{i + 1}. #{brewery.name}"
-        end
-        puts "\n"
-        brewery_input = gets.strip.downcase
-        if brewery_input != "back"
-          the_brewery = DurangoDrinks::Brewery.all[brewery_input.to_i-1]
-          puts "Name:         #{the_brewery.name}"
-          puts "Address:      #{the_brewery.address}"
-          puts "Description:  #{the_brewery.description}"
-          puts "Phone:        #{the_brewery.telephone}"
-        end
+        brewery_menu
       elsif input.to_i == 3
-        puts "Durango's Cafes"
-        puts "Enter the number corresponding number to a specific cafe or back for the main menu."
-        DurangoDrinks::Cafe.scrape_location(DurangoDrinks::Cafe::LOCATION_TYPES[:cafe])
-        DurangoDrinks::Cafe.all.each.with_index do |cafe, i|
-          puts "#{i + 1}. #{cafe.name}"
-        end
-        puts "\n"
-        cafe_input = gets.strip.downcase
-        if cafe_input != "back"
-          the_cafe = DurangoDrinks::Cafe.all[cafe_input.to_i-1]
-          puts "Name:         #{the_cafe.name}"
-          puts "Address:      #{the_cafe.address}"
-          puts "Description:  #{the_cafe.description}"
-          puts "Phone:        #{the_cafe.telephone}"
-        end
+        cafe_menu
       elsif input == "list"
         list_drink_menu
       elsif input == "exit"
