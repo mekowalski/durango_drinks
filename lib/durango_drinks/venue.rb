@@ -1,14 +1,13 @@
-class DurangoDrinks::Cafe
-  attr_accessor :name, :description, :address, :telephone
+class DurangoDrinks::Venue
+  attr_accessor :name, :description, :address, :telephone, :location_type
   @@all = []
-
-  LOCATION_TYPES = {cafe: "coffee-shops"}
 
   def initialize(attributes = {})
     @name = attributes[:name]
     @description = attributes[:description]
     @address = attributes[:address]
     @telephone = attributes[:telephone]
+    @location_type = attributes[:location_type]
     @@all << self
   end
 
@@ -16,18 +15,20 @@ class DurangoDrinks::Cafe
     @@all
   end
 
-  def self.scrape_location(location_type = :cafe)
-    @@all = []
-    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/coffee-shops"))
+  def self.scrape_location(location, type)
+    doc = Nokogiri::HTML(open("http://www.durango.org/listings/category/#{location}"))
     doc.css(".listing_link").each do |listing|
-      name = listing.css("h3").text
-      # binding.pry
-        self.new({
+      self.new({
         :name => listing.css("h3").text,
         :description => listing.css(".summary").text,
         :address => listing.css(".address").text.gsub("\n", " "),
         :telephone => listing.css(".phone").text,
+        :location_type => type
       })
     end
+  end
+
+  def self.find_by_type(type)
+    @@all.select { |venue| venue.location_type == type }
   end
 end
